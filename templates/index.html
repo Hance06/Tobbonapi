@@ -1,0 +1,373 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body>
+<div class="left-menu">
+    <div class="content-logo">
+        <div class="logo">
+            <img alt="platform by Emily van den Heever from the Noun Project" title="platform by Emily van den Heever from the Noun Project" src="{% static 'images/logo.png' %}" height="32" />
+            <span>Halil ARSLAN _ API</span>
+        </div>
+        <button class="burger-menu-icon" id="button-menu-mobile">
+            <svg width="34" height="34" viewBox="0 0 100 100"><path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"></path><path class="line line2" d="M 20,50 H 80"></path><path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"></path></svg>
+        </button>
+    </div>
+    <div class="mobile-menu-closer"></div>
+    <div class="content-menu">
+        <div class="content-infos">
+            <div class="info"><b>Versiyon:</b> 1.2</div>
+            <div class="info"><b>Son Geliştirme Tarihi:</b> 07.06.2022</div>
+        </div>
+        <ul>
+            <li class="scroll-to-link active" data-target="content-get-started">
+                <a>Ön Tanım</a>
+            </li>
+            <li class="scroll-to-link" data-target="content-get-characters">
+                <a>Ontoloji Varlık İlişkisi</a>
+            </li>
+            <li class="scroll-to-link" data-target="content-errors">
+                <a>Sorgular</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="content-page">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section" id="content-get-started">
+            <h1>Ön Tanım</h1>
+            <pre>
+    API URL ve WSDL Kaynak Yolu
+    
+        Doküman: https://www.github.com/Hance06
+        API: http://www.cengpy.com/api/belgeler/
+        WSDL: http://www.cengpy.com/media/wsdlOntoloji.wsdl
+                </pre>
+            <p>
+                Sanayi Odalarına kaydolarak sanayi kuruluşu niteliği kazanan özel veya tüzel kişiliklerin kimlik kartı niteliğinde olan ve bu kuruluşların irtibat bilgilerini, üretim konularını ve yıllık üretim kapasitelerini, teknolojilerini, makine parklarını, kullandıkları hammaddeleri, sermaye ve istihdam bilgileri ile benzeri konuları içeren kapasite raporlarını, kuruluşların bağlı bulundukları Sanayi Odaları düzenlemektedir.
+            </p>
+            <p>
+                Bu projede geliştirilen <strong>TOBBON_API</strong> dokümanlarda kolaylık için geliştirildi. API URL: <a href="{% url 'belge-listesi'%}" target="blank">api/belgeler</a>
+            </p>
+        </div>
+        <div class="overflow-hidden content-section" id="content-get-characters">
+            <h2>Ontoloji Varlık İlişkisi</h2>
+            <pre><code class="bash">
+# Here is a curl example
+curl \
+-X POST http://www.cengpy.com/api/ \
+-F 'secret_key=TOBB' \
+-F 'belgeler=1'
+                </code></pre>
+            <p>
+                TOBB Ticaret Sanayi Odası - Kapasite Talep Formu :<br>
+                <code class="higlighted break-word"><scripts src='file:///templates/wsdlOntoloji.wsdl'>wsdlOntoloji.wsdl</scripts></code>
+            </p>
+            <br>
+            <pre><code class="json">
+Belgeler:
+
+[
+    { 
+	    "belge_basligi" : "Talep 1",
+	    "bagli_olunan_holding" : "Medeni",
+	    "firma_unvani" : "Bilişim",
+	    "is_yeri_adresi" : "Ankara",
+	    "merkezi_adres" : "Ankara",
+	    "mersis_no" : "1",
+	    "sanayi_sicil_no" : "2",
+	    "tescilli_marka" : "Pars",
+	    "ticaret_sicil_no" : "4",
+	    "vergi_daire_no" : "5"
+    },
+    { 
+	    "belge_basligi" : "Talep 2",
+	    "bagli_olunan_holding" : "Arslan",
+	    "firma_unvani" : "Teknoloji",
+	    "is_yeri_adresi" : "Ankara",
+	    "merkezi_adres" : "Ankara",
+	    "mersis_no" : "1",
+	    "sanayi_sicil_no" : "2",
+	    "tescilli_marka" : "Pars",
+	    "ticaret_sicil_no" : "4",
+	    "vergi_daire_no" : "5"
+    },
+    { 
+	    "belge_basligi" : "Talep 3",
+	    "bagli_olunan_holding" : "Gürcüoğlu",
+	    "firma_unvani" : "Danışmanlık",
+	    "is_yeri_adresi" : "Ankara",
+	    "merkezi_adres" : "Ankara",
+	    "mersis_no" : "1",
+	    "sanayi_sicil_no" : "2",
+	    "tescilli_marka" : "Pars",
+	    "ticaret_sicil_no" : "4",
+	    "vergi_daire_no" : "5"
+    },
+]
+                </code></pre>
+            <h4>Ontoloji Varlık İlişkisi</h4>
+            <table class="central-overflow-x">
+                <thead>
+                <tr>
+                    <th>Varlık</th>
+                    <th>Alt Varlık</th>
+                    <th>Açıklama</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>belge_no</td>
+                    <td>baglı_olunan_holding</td>
+                    <td>baglı_olunan_holding</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>is_yeri_adresi</td>
+                    <td>is_yeri_adresi</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>merkezi_adres</td>
+                    <td>merkezi_adres</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>mersis_no</td>
+                    <td>mersis_no</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>sanayi_sicil_no</td>
+                    <td>sanayi_sicil_no</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>tescilli_marka</td>
+                    <td>tescilli_marka</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>ticaret_sicil_no</td>
+                    <td>ticaret_sicil_no</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>vergi_daire_no</td>
+                    <td>vergi_daire_no</td>
+                </tr>
+
+                <!--****-->
+
+                <tr>
+                    <td>personel_durumu</td>
+                    <td>isci</td>
+                    <td>isci</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>mühendis</td>
+                    <td>mühendis</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>teknisyen</td>
+                    <td>teknisyen</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>usta</td>
+                    <td>usta</td>
+                </tr>
+
+                <!--****-->
+
+                <tr>
+                    <td>yabancı_sermaye</td>
+                    <td>firma</td>
+                    <td>firma</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>oran</td>
+                    <td>oran</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>sertifikalar</td>
+                    <td>sertifikalar</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>ülke</td>
+                    <td>ülke</td>
+                </tr>
+
+                <!--****-->
+
+                <tr>
+                    <td>üretim_konusu</td>
+                    <td>*</td>
+                    <td>*</td>
+                </tr>
+
+                <!--****-->
+
+                <tr>
+                    <td>gayri_maddi_hak</td>
+                    <td>knowhow</td>
+                    <td>knowhow</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>lisans</td>
+                    <td>lisans</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>patent</td>
+                    <td>patent</td>
+                </tr>
+
+                <!--****-->
+
+                <tr>
+                    <td>sermaye_kıymetler_durumu</td>
+                    <td>diger_sabit</td>
+                    <td>diger_sabit</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>kıymetler</td>
+                    <td>kıymetler</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>makine_tehcizat</td>
+                    <td>makine_tehcizat</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>net_isletme_sermayesi</td>
+                    <td>net_isletme_sermayesi</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>tescilli_sermaye</td>
+                    <td>tescilli_sermaye</td>
+                </tr>
+
+                <!--****-->
+
+                <tr>
+                    <td>üretim_tesisin_durumu</td>
+                    <td>arazi</td>
+                    <td>arazi</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>bina_insaat_tipi</td>
+                    <td>bina_insaat_tipi</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>idari_personel</td>
+                    <td>idari_personel</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>kapalı_saha</td>
+                    <td>kapalı_saha</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>kiracı</td>
+                    <td>kiracı</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>mal_sahibi</td>
+                    <td>mal_sahibi</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-hidden content-section" id="content-errors">
+            <h2>Sorgular</h2>
+            <p>
+                Kapasite Talep Formu API'sinin 3 temel yapısı bulunmaktadır, bunlar:
+            </p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Varlık</th>
+                    <th>Alt Varlık</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Bilgiler</td>
+                    <td>
+                        hasEksiksizdoldurmalı
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        hasGüncelolmalı
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        hasHatasızdoldurulmalı
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        hasKurallarauygunolmalı
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        hasResmidüzenicermeli
+                    </td>
+                </tr>
+                <tr>
+                    <td>Eksikler</td>
+                    <td>
+                        hasTespitedilmeli
+                    </td>
+                </tr>
+                <tr>
+                    <td>Veriler</td>
+                    <td>
+                        hasDogrubilgi
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        hasHatasızolmalı
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        hasNetsayıicermeli
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="content-code"></div>
+</div>
+
+{% endblock content %}
